@@ -29,10 +29,20 @@ library(scales)
 dist <- c(rep(0, 14), rep(1, 16))
 
 # using rbinom because there are just men and women
-sample(dist, 4, replace = FALSE)
+
+n <- 1000
 
 class <- rep(NA, 8)
-for (s in 1:8){class[s] <- sample(dist, 4, replace = FALSE)}
+for (i in 1:n)
+  {
+  class <- sample(dist, 4, replace = FALSE)
+}
+
+class
+
+
+
+
 
 
 ```
