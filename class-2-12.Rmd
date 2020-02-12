@@ -1,0 +1,39 @@
+---
+title: "class-2-12"
+author: "Carine Hajjar"
+date: "2/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(fs)
+library(infer)
+library(tidyr)
+library(moderndive)
+library(googlesheets4)
+library(gt)
+library(scales)
+library(tidyverse)
+library(janitor)
+library(readr)
+library(scales)
+
+# central question: do people in this class clump by gender? 
+# looking at a table-by-table basis - 4 people at each table 
+# class composition is 14 men and 16 women 
+# our null hypothesis is that people show up randomly while alternative is that people clump by gender 
+
+# 0 is men (and there are 14 of them so zero is being repeated 14 times), and one is female 
+dist <- c(rep(0, 14), rep(1, 16))
+
+# using rbinom because there are just men and women
+sample(dist, 4, replace = FALSE)
+
+class <- rep(NA, 8)
+for (s in 1:8){class[s] <- sample(dist, 4, replace = FALSE)}
+
+
+```
+
